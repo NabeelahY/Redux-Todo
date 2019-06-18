@@ -1,9 +1,27 @@
 import React from "react";
 import { createStore, combineReducers } from "redux";
 import { todoReducer } from "./components/reducers";
-import "./App.css";
+import styled from "styled-components";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
+
+const StyledTodo = styled.div`
+  text-align: center;
+  margin: 0 auto;
+  width: 50%;
+
+  form {
+    margin: 1rem 0;
+
+    input{
+      padding: 0.5rem;
+    }
+
+    button {
+      padding: 0.5rem;
+    }
+  }
+`;
 
 const combinedReducer = combineReducers({
   todos: todoReducer
@@ -16,10 +34,10 @@ export const store = createStore(
 
 function App() {
   return (
-    <div className="App">
+    <StyledTodo>
       <TodoForm />
       <TodoList />
-    </div>
+    </StyledTodo>
   );
 }
 
